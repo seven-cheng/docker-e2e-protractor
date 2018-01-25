@@ -66,6 +66,7 @@ RUN npm install --unsafe-perm --save-exact -g protractor@5.0.0 \
 # Get the latest Google Chrome driver
   && npm update \
 # Get the latest WebDriver Manager
+  && webdriver-manager clean \
   && webdriver-manager update --versions.chrome 2.28 -g
 
 # Set the path to the global npm install directory. This is vital for Jasmine Reporters
