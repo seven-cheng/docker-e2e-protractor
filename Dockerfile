@@ -64,10 +64,11 @@ RUN rm -fr /root/tmp
 # https://github.com/nodejs/node-gyp/issues/454
 RUN npm install --unsafe-perm --save-exact -g protractor@5.0.0 \
 # Get the latest Google Chrome driver
-  && npm update \
+  && npm update 
 # Get the latest WebDriver Manager
-  && webdriver-manager clean \
-  && webdriver-manager update --versions.chrome 2.28 -g
+RUN echo "{\"webdriverVersions\":{\"selenium\":\"2.53.1\",\"chromedriver\":\"2.26\",\"geckodriver\":\"v0.11.1\",\"iedriver\":\"2.53.1\",\"androidsdk\":\"24.4.1\",\"appium\":\"1.6.0\"},\"cdnUrls\":{\"selenium\":\"http://npm.taobao.org/mirrors/selenium/\",\"chromedriver\":\"https://npm.taobao.org/mirrors/chromedriver/\",\"geckodriver\":\"https://github.com/mozilla/geckodriver/releases/download/\",\"iedriver\":\"http://npm.taobao.org/mirrors/selenium/\",\"androidsdk\":\"http://dl.google.com/android/\"}}" > /usr/lib/node_modules/protractor/node_modules/webdriver-manager/config.json
+RUN echo "{\"webdriverVersions\":{\"selenium\":\"2.53.1\",\"chromedriver\":\"2.26\",\"geckodriver\":\"v0.11.1\",\"iedriver\":\"2.53.1\",\"androidsdk\":\"24.4.1\",\"appium\":\"1.6.0\"},\"cdnUrls\":{\"selenium\":\"http://npm.taobao.org/mirrors/selenium/\",\"chromedriver\":\"https://npm.taobao.org/mirrors/chromedriver/\",\"geckodriver\":\"https://github.com/mozilla/geckodriver/releases/download/\",\"iedriver\":\"http://npm.taobao.org/mirrors/selenium/\",\"androidsdk\":\"http://dl.google.com/android/\"}}" > /usr/lib/node_modules/protractor/node_modules//webdriver-manager/built/config.json
+RUN webdriver-manager update
 
 # Set the path to the global npm install directory. This is vital for Jasmine Reporters
 # http://stackoverflow.com/questions/31534698/cannot-find-module-jasmine-reporters
