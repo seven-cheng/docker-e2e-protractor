@@ -21,6 +21,14 @@ echo "config nodejs env.........................................................
 export PATH=$PATH:/opt/app/nodejs/bin
 node -v
 
+echo "install firefox chrome............................................................."
+
+wget https://dl-ssl.google.com/linux/linux_signing_key.pub
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+apt-get update
+apt-get install irefox=45.0.2+build1-0ubuntu1 google-chrome-stable default-jre 
+apt-mark hold firefox
+
 
 echo "install protractor ................"
 #npm config set proxy=http://172.17.18.84:8080 -g
