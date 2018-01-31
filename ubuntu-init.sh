@@ -1,7 +1,7 @@
 #export http_proxy=http://172.17.18.84:8080
 #export https_proxy=http://172.17.18.84:8080
 
-apt-get update
+apt-get update -y
 apt-get install -y wget curl xz-utils vim
 
 echo "install python2.7..............................................................."
@@ -25,8 +25,8 @@ echo "install firefox chrome....................................................
 
 wget https://dl-ssl.google.com/linux/linux_signing_key.pub
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-apt-get update
-apt-get install firefox=45.0.2+build1-0ubuntu1 google-chrome-stable default-jre 
+apt-get update -y
+apt-get install firefox=45.0.2+build1-0ubuntu1 google-chrome-stable default-jre -y
 apt-mark hold firefox
 
 
