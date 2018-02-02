@@ -90,4 +90,4 @@ ENV HOME=/protractor/project
 # Set the file access permissions (read, write and access) recursively for the new folders
 RUN chmod -Rf 777 .
 # Container entry point
-CMD ["protractor","--version"]
+CMD ["protractor","/bin/bash"]
